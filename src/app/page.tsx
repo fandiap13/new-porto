@@ -1,101 +1,168 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const [progress, setProgress] = useState(0);
+  const [phase, setPhase] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (phase === 1) {
+          if (prev >= 100) {
+            setPhase(2); // Pindah ke fase 2
+            return 0;
+          }
+          return prev + 1;
+        } else {
+          if (prev >= 100) {
+            clearInterval(interval);
+            return 100;
+          }
+          return prev + 1;
+        }
+      });
+    }, 12);
+
+    return () => {
+      clearInterval(interval)
+    };
+  }, [phase]);
+
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = phase === 1
+    ? circumference - ((progress / 100) * circumference) // Gerak ke kiri (normal)
+    : ((progress / 100) * circumference) - circumference; // Gerak ke kanan (balik)
+
+
+  const backgroundVariant = {
+    initial: {
+      backgroundColor: "#0F172A",
+    },
+    hover: {
+      backgroundColor: "#fff",
+      transition: {
+        delay: 0.1,
+        duration: 0.5,
+        ease: [0.19, 1, 0.22, 1],
+      },
+      animate: {
+        backgroundColor: "#0F172A",
+        transition: {
+          delay: 0.1,
+          duration: 0.5,
+          ease: [0.19, 1, 0.22, 1],
+        },
+      },
+    }
+  }
+
+  const firstTextVariant = {
+    initial: {
+      y: 0,
+    },
+    hover: {
+      y: -20,
+      transition: {
+        duration: 1.125,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+    animate: {
+      y: 0,
+      transition: {
+        duration: 1.125,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+  };
+
+  const secondTextVariant = {
+    initial: {
+      y: 20,
+    },
+    hover: {
+      y: 0,
+      transition: {
+        duration: 1.125,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+    animate: {
+      y: 20,
+      transition: {
+        duration: 1.125,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+  };
+
+  return (
+    <div
+      style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
+      className="flex flex-col items-center justify-center h-screen text-white"
+    >
+      {progress >= 100 && phase == 2 ? (
+        <div className="text-center">
+          <h4 className="text-2xl font-semibold mb-5 max-w-md">Begin your journey to explore my work and experiences.</h4>
+          <motion.button
+            variants={backgroundVariant}
+            initial="initial"
+            whileHover="hover"
+            animate="animate"
+            whileTap={{ scale: 0.8 }}
+            type="button"
+            className="w-[200px] border border-white rounded-full px-4 py-4 font-semibold"
+            onClick={() => router.push("/portfolio")}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="overflow-hidden relative text-lg">
+              <motion.p variants={firstTextVariant} className="text-white">
+                MULAI
+              </motion.p>
+              <motion.p
+                variants={secondTextVariant}
+                aria-hidden
+                className="absolute top-0 left-0 right-0 text-dark"
+              >
+                <div className="flex items-center justify-center">
+                  <span>MULAI</span><FaArrowRight className="ml-2 w-5 h-5" />
+                </div>
+              </motion.p>
+            </div>
+          </motion.button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      ) : (
+        <>
+          <svg width="140" height="140" viewBox="0 0 100 100">
+            {/* Lingkaran background */}
+            <circle cx="50" cy="50" r={radius} stroke="#e0e0e0" strokeWidth="0" fill="none" />
+
+            {/* Lingkaran progress */}
+            <motion.circle
+              cx="50"
+              cy="50"
+              r={radius}
+              stroke="white"
+              // className={"text-white"}
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+              strokeDasharray={circumference}
+              strokeDashoffset={strokeDashoffset}
+              initial={{ strokeDashoffset: circumference }}
+              animate={{ strokeDashoffset }}
+              transition={{ duration: 0.05 }}
+            />
+          </svg>
+          <p className="mt-4 text-xl font-semibold">{progress}%</p></>
+      )}
     </div>
   );
-}
+};
