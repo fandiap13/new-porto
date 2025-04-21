@@ -35,7 +35,7 @@ const ShowDetailProjectComponent: React.FC<ShowDetailProjectComponentProps> = ({
             }}
         >
             <motion.div
-                className={`w-full md:w-[40%] h-screen bg-dark shadow border-l-[1px] border-l-slate-800 ${data.href && "pb-[80px]"} relative`}
+                className={`w-full md:w-[40%] h-screen bg-dark shadow border-l-[1px] border-l-slate-800 ${data.href ? "pb-[80px]" : "pb-5"} relative`}
             // initial={{ x: "100%" }}
             // animate={{ x: openModal ? 0 : "100%" }}
             // transition={{ type: 'tween', duration: 0.5 }}
@@ -83,9 +83,9 @@ const ShowDetailProjectComponent: React.FC<ShowDetailProjectComponentProps> = ({
                         </div>
 
                         {data.links && data.links.map(link => (
-                            <div className='mb-6' key={link.name}>
+                            <div className='mb-3' key={link.name}>
                                 <h2 className='font-semibold text-lg mb-3'>{link.name}</h2>
-                                <a href={link.link} className='hover:underline text-defaultblue' target='_blank'>jae.hastaerp.id/</a>
+                                <a href={link.link} className='hover:underline text-defaultblue' target='_blank'>{link.link}/</a>
                             </div>
                         ))}
                     </div>
