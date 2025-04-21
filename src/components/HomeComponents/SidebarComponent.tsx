@@ -97,7 +97,7 @@ const SidebarComponent: React.FC<SidebarComponentProps> = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <motion.a href='#'>
+                            <motion.a href={menu.href}>
                                 {menu.name}
                             </motion.a>
                         </motion.li>

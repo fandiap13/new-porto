@@ -16,7 +16,7 @@ const TypingRoleComponent = () => {
             <span className='mr-1'>{`I'm a`}</span>
             <Typewriter
                 options={{
-                    strings: ["Front End Web Developer", 'UI/UX Designer'],
+                    strings: ["Front End Web Developer", 'Full Stack Web Developer'],
                     autoStart: true,
                     loop: true,
                 }}
