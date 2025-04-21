@@ -449,7 +449,7 @@ const BodyHomeComponent = () => {
                             <div className="flex w-full sm:w-1/2 flex-wrap flex-col lg:flex-row">
                                 <div className="w-full lg:w-1/2 p-1 md:p-2 overflow-hidden">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             handleShowModal({
                                                 desc: "The JAE (JAS AEROEngineering) website is a pre-flight aircraft inspection platform I developed using Next.js, featuring a responsive interface and real-time data input system. It helps technicians efficiently and accurately document inspection results, integrated with the backend to support auditing processes and ensure flight safety.",
@@ -471,7 +471,7 @@ const BodyHomeComponent = () => {
 
                                 <div className="w-full lg:w-1/2 p-1 md:p-2">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             handleShowModal({
                                                 desc: "MAGNITUDE Website is a platform designed to manage the Work Order Management System for monitoring and reporting the condition of facilities, especially villas. Its key features include real-time condition reporting, photo documentation as evidence, and tracking the repair process. Built with Next.js for a responsive front-end and Laravel on the back-end, the website aims to enhance facility maintenance efficiency and ensure the repair process is easily monitored.",
@@ -492,7 +492,7 @@ const BodyHomeComponent = () => {
                                 </div>
                                 <div className="w-full p-1 md:p-2">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             window.open("https://daftaronline.indonesiainjb.my/", "_blank");
                                         }}
@@ -518,7 +518,7 @@ const BodyHomeComponent = () => {
                             <div className="flex w-full sm:w-1/2 flex-wrap flex-col lg:flex-row">
                                 <div className="w-full p-1 md:p-2">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             handleShowModal({
                                                 desc: "As a mobile app developer for the Kios Sehat Kit Support project, I was responsible for developing the application using Flutter. The app is designed to control WISH devices from Widya Imersif, specifically for managing the WiFi connection on these devices using Bluetooth Low Energy (BLE) communication protocol. By utilizing BLE, the app ensures minimal power consumption while maintaining optimal connectivity between the devices and the mobile app. Key features of the app include the ability to change or set the WiFi network on the WISH device, efficient management of the connection through BLE, and a simple, intuitive interface that allows users to easily control their health devices quickly and without difficulty.",
@@ -535,7 +535,7 @@ const BodyHomeComponent = () => {
                                 </div>
                                 <div className="w-full lg:w-1/2 p-1 md:p-2">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             handleShowModal({
                                                 desc: "This project involves developing a mobile health monitoring app using Dart and Flutter, integrating two health sensors: MAX30102 for measuring blood oxygen levels and heart rate, and MLX90614 for measuring body temperature. The sensors are connected via an ESP32 microcontroller using Bluetooth Low Energy (BLE) to transmit data to the app, with Firebase Firestore used for data storage. The app allows users to monitor their health in real-time, displaying data like blood oxygen levels, heart rate, and body temperature. It also stores the data on the server for future access, providing a user-friendly interface that enables independent health checks anytime and anywhere. Additionally, BLE ensures low power consumption, allowing extended use without frequent battery recharging.",
@@ -557,7 +557,7 @@ const BodyHomeComponent = () => {
                                 </div>
                                 <div className="w-full lg:w-1/2 p-1 md:p-2">
                                     <PortfolioCardImage
-                                        className="w-full h-[300px]"
+                                        className="w-full !h-[300px]"
                                         onClick={() => {
                                             handleShowModal({
                                                 desc: `This app is the result of my internship experience at Widya Imersif Teknologi, where I worked in the Internet of Things (IoT) division responsible for application development. My task was to create a Proof of Concept (PoC) for the mobile app "Wish Health Kios Sehat Portable" using Flutter. The app integrates three main sensors: the Pulse Oximeter FS20D for checking blood oxygen levels and heart rate, the ADF-B38A Thermometer for measuring body temperature, and the Onemed IF2050A weight sensor for monitoring body weight. These sensors are integrated via Bluetooth Low Energy (BLE) to ensure efficient health monitoring. The main goal of the project is to introduce a more efficient way to manage personal health data while providing an easily accessible and practical solution for everyday health monitoring. Key features include user login and registration, managing health check data, monitoring health indicators such as oxygen saturation, heart rate, body temperature, weight, and BMI, as well as the ability to edit user profiles.`,
