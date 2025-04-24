@@ -138,7 +138,7 @@ const BodyHomeComponent = () => {
                             variants={heroVariantSection}
                             initial="initial"
                             animate="animate"
-                            className="text-3xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 xl:text-6xl"
+                            className="text-2xl sm:text-3xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 xl:text-6xl"
                         >
                             <div>
                                 Hi, I'm <StyledTextColor1>Fandi Aziz Pratama</StyledTextColor1>
@@ -294,7 +294,7 @@ const BodyHomeComponent = () => {
                                 With a strong passion for continuous learning and a solid commitment to quality, I strive to bring innovative solutions to every project I work on. For me, every challenge is an opportunity to grow and create digital products that make a real impact.
                             </div>
 
-                            <div className="flex flex-col md:flex-row gap-x-4 items-stretch md:items-center">
+                            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center">
                                 <motion.button
                                     variants={aboutVariantSection}
                                     initial="initial"
