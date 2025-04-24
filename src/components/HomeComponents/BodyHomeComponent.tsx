@@ -106,7 +106,7 @@ const BodyHomeComponent = () => {
             {/* Navbar */}
             <section
                 // style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
-                className="bg-gradient-to-bl h-screen w-full from-bgdark md:px-[58px] min-h-screen px-[30px] relative to-bgdark2"
+                className="bg-gradient-to-bl h-[100dvh] w-full from-bgdark md:px-[58px] min-h-[100dvh] px-[30px] relative to-bgdark2"
             >
                 <div className="flex justify-between absolute items-center left-[20px] md:static pt-[20px] right-[20px] top-0">
                     <Link href={"/"}>
@@ -138,7 +138,7 @@ const BodyHomeComponent = () => {
                             variants={heroVariantSection}
                             initial="initial"
                             animate="animate"
-                            className="text-2xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 sm:text-3xl xl:text-6xl"
+                            className="text-3xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 xl:text-6xl"
                         >
                             <div>
                                 Hi, I'm <StyledTextColor1>Fandi Aziz Pratama</StyledTextColor1>
@@ -261,7 +261,7 @@ const BodyHomeComponent = () => {
 
             <section
                 id="about-me"
-                className="px-[40px] py-[100px]"
+                className="px-[40px] py-[200px]"
                 style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
             >
                 <div className="2xl:max-w-screen-xl max-w-screen-lg mx-auto">
@@ -272,12 +272,19 @@ const BodyHomeComponent = () => {
 
                     <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
                         <div className="flex justify-center">
-                            <Image
+                            {/* <Image
                                 src="/images/foto.png"
                                 width={350}
                                 height={350}
                                 alt="Scroll Icon"
                                 className="rounded-xl object-cover"
+                            /> */}
+                            <Image
+                                src="https://media.licdn.com/dms/image/v2/D5603AQEmjmlr_lqxEQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722920289294?e=1750896000&v=beta&t=GawtWYzgTYBrxqB0bQ0z-s33Tqyz-DoK5CyQNem1aCQ"
+                                width={350}
+                                height={350}
+                                alt="Scroll Icon"
+                                className="rounded-xl object-contain"
                             />
                         </div>
 
@@ -311,7 +318,7 @@ const BodyHomeComponent = () => {
                                         <div className="text-sm font-semibold">Complete</div>
                                         <div className="text-sm font-light">1000 + Projects</div>
                                     </div>
-                                </motion.button>
+                                </motion.button> */}
                                 <motion.button
                                     variants={aboutVariantSection}
                                     initial="initial"
@@ -323,7 +330,7 @@ const BodyHomeComponent = () => {
                                         <div className="text-sm font-semibold">Support</div>
                                         <div className="text-sm font-light">Online 24/7</div>
                                     </div>
-                                </motion.button> */}
+                                </motion.button>
                             </div>
                         </div>
                     </div>
@@ -332,7 +339,7 @@ const BodyHomeComponent = () => {
 
             <section
                 id="skills"
-                className="text-white px-[20px] py-[100px]"
+                className="text-white px-[20px] py-[200px]"
                 style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
             >
                 <div className="2xl:max-w-screen-xl max-w-screen-lg mx-auto">
@@ -404,7 +411,7 @@ const BodyHomeComponent = () => {
 
             <section
                 id="qualification"
-                className="text-white px-[20px] py-[100px]"
+                className="text-white px-[20px] py-[200px]"
                 style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
             >
                 <div className="2xl:max-w-screen-xl max-w-screen-lg mx-auto">
@@ -414,14 +421,14 @@ const BodyHomeComponent = () => {
                     </div>
 
                     <div className="grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-2">
-                        <div className="bg-defaultblue/70 rounded-lg backdrop-blur-md hover:bg-defaultblue/90 px-8 py-8">
+                        <div className="bg-defaultblue/40 rounded-lg backdrop-blur-md hover:bg-defaultblue/60 px-8 py-8">
                             <QualificationList title="Universitas Duta Bangsa Surakarta" desc="Teknik Informatika" rentang="2020 s/d 2024" stat={"first"} />
                             <QualificationList title="SMK Negeri 2 Karanganyar" desc="Rekayasa Perangkat Lunak" rentang="2017 s/d 2020" stat={"end"} />
                         </div>
-                        <div className="bg-defaultblue/70 rounded-lg backdrop-blur-md hover:bg-defaultblue/90 px-8 py-8">
+                        <div className="bg-defaultblue/40 rounded-lg backdrop-blur-md hover:bg-defaultblue/60 px-8 py-8">
                             <QualificationList title="PT Himalaya Indokarya" desc="Web Developer" rentang="Nov 2024 - Now" stat={"first"} />
                             <QualificationList title="BIIS Corp" desc="Fullstack Web Developer" rentang="June 2024 - Oct 2024" stat={"first"} />
-                            <QualificationList title="PT Widya Imersif Teknologi" desc="Magang Staff IOT" rentang="June 2024 - Oct 2024" stat={"end"} />
+                            <QualificationList title="PT Widya Imersif Teknologi" desc="Magang Staff IOT" rentang="Sep 2023 - Jan 2024" stat={"end"} />
                         </div>
                     </div>
                 </div>
@@ -434,7 +441,7 @@ const BodyHomeComponent = () => {
 
             <section
                 id="portofolio"
-                className="text-white px-[20px] py-[100px]"
+                className="text-white px-[20px] py-[200px]"
                 style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
             >
                 <div className="2xl:max-w-screen-xl max-w-screen-lg mx-auto">
@@ -510,7 +517,7 @@ const BodyHomeComponent = () => {
                                         // }}
                                         imgUrl="/images/daftaronline/dashboard.png"
                                         title={
-                                            "Daftaronline KJRI JB"
+                                            "Daftaronline KJRI JB, (Front End Developer)"
                                         }
                                     />
                                 </div>

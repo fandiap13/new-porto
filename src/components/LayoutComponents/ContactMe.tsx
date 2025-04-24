@@ -8,7 +8,7 @@ const ContactMe = () => {
     return (
         <section
             id="contact-me"
-            className="text-white px-[20px] py-[100px]"
+            className="text-white px-[20px] py-[200px]"
             style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
         >
             <div className="2xl:max-w-screen-xl max-w-screen-lg mx-auto">
@@ -27,12 +27,16 @@ const ContactMe = () => {
                                     <div className="text-lg font-medium">Email</div>
                                     <div className="!text-orangeCustom font-medium group-hover:!text-defaultblue/80">andiazizp123@gmail.com</div>
                                 </div>
-                                <div className="flex justify-center cursor-pointer items-center">
+                                <a
+                                    target='_blank'
+                                    href="mailto:andiazizp123@gmail.com?subject=Halo&body=Halo, saya tertarik untuk ngobrol lebih lanjut."
+                                    className="flex justify-center cursor-pointer items-center"
+                                >
                                     <span>Write Me</span>
                                     <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}>
                                         <FaArrowRight className="text-inherit ml-4" />
                                     </motion.div>
-                                </div>
+                                </a>
                             </div>
 
                             <div className="flex flex-col bg-primary border-2 border-primary justify-center rounded-2xl w-full group hover:bg-transparent items-center md:max-w-[350px] px-8 py-6 transition-all">
@@ -41,8 +45,11 @@ const ContactMe = () => {
                                     <div className="text-lg font-medium">Whatsapp</div>
                                     <div className="!text-orangeCustom font-medium group-hover:!text-defaultblue/80">0895392518509</div>
                                 </div>
-                                <a href="" className="flex justify-center cursor-pointer items-center">
-                                    <span>Write Me</span>
+                                <a
+                                    target='_blank'
+                                    href="https://wa.me/62895392518509?text=Halo%2C%20saya%20ingin%20bertanya%20lebih%20lanjut."
+                                    className="flex justify-center cursor-pointer items-center">
+                                    <span>Chat Me</span>
                                     <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}>
                                         <FaArrowRight className="text-inherit ml-4" />
                                     </motion.div>

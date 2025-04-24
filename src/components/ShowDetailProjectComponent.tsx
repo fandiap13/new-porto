@@ -35,7 +35,7 @@ const ShowDetailProjectComponent: React.FC<ShowDetailProjectComponentProps> = ({
             }}
         >
             <motion.div
-                className={`w-full md:w-[40%] h-screen bg-dark shadow border-l-[1px] border-l-slate-800 ${data.href ? "pb-[80px]" : "pb-5"} relative`}
+                className={`w-full md:w-[40%] h-[100dvh] bg-dark shadow border-l-[1px] border-l-slate-800 ${data.href ? "pb-[80px]" : "pb-5"} relative`}
             // initial={{ x: "100%" }}
             // animate={{ x: openModal ? 0 : "100%" }}
             // transition={{ type: 'tween', duration: 0.5 }}

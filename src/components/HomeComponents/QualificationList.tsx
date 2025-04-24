@@ -10,7 +10,7 @@ interface QualificationListProps {
 
 const QualificationList: React.FC<QualificationListProps> = ({ desc, rentang, title, stat }) => {
     return (
-        <div className="relative pl-8 flex flex-col pb-6">
+        <div className="relative pl-8 flex flex-col pb-8">
             {stat == "first" && (
                 <>
                     {/* <span className="w-[2px] h-1/2 bg-white absolute -left-[1px] top-1/2 rounded-t-lg"></span> */}
