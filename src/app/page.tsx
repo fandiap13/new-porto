@@ -106,9 +106,11 @@ export default function Home() {
 
   return (
     <div
-      style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
+      // style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
       className="flex flex-col items-center justify-center h-screen text-white"
     >
+      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#0F172A_40%,#2563eb_100%)]"></div>
+
       {progress >= 100 && phase == 2 ? (
         <div className="text-center">
           <h4 className="text-2xl font-semibold mb-5 max-w-md">Begin your journey to explore my work and experiences.</h4>

@@ -105,52 +105,53 @@ const BodyHomeComponent = () => {
         <main className="h-full text-slate-300 w-full">
             {/* Navbar */}
             <section
-                // style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
-                className="bg-gradient-to-bl h-[100dvh] w-full from-bgdark md:px-[58px] min-h-[100dvh] px-[30px] relative to-bgdark2"
+                style={{ background: "linear-gradient(180deg, #0F172A, #0c0c1d)" }}
+                className="h-[100dvh] w-full md:px-[58px] min-h-[100dvh] relative"
             >
-                <div className="flex justify-between absolute items-center left-[20px] md:static pt-[20px] right-[20px] top-0">
-                    <Link href={"/"}>
-                        <motion.h3
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                            className="text-3xl font-semibold"
-                        >
-                            <span>_Fandi</span>
-                            <span className='text-defaultblue'>Az.</span>
-                        </motion.h3>
-                    </Link>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_100%_at_50%_0%,#000_70%,transparent_110%)] px-[30px] h-full w-full">
+                    <div className="flex justify-between absolute items-center left-[20px] md:static pt-[20px] right-[20px] top-0">
+                        <Link href={"/"}>
+                            <motion.h3
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="text-3xl font-semibold"
+                            >
+                                <span>_Fandi</span>
+                                <span className='text-defaultblue'>Az.</span>
+                            </motion.h3>
+                        </Link>
 
-                    <div className="flex gap-5 items-center">
-                        <div className="gap-5 hidden items-center md:!flex">
-                            {menuItems.map((menu, i) => (
-                                <NavItemsButton href={menu.href} key={i} title={menu.name} />
-                            ))}
+                        <div className="flex gap-5 items-center">
+                            <div className="gap-5 hidden items-center md:!flex">
+                                {menuItems.map((menu, i) => (
+                                    <NavItemsButton href={menu.href} key={i} title={menu.name} />
+                                ))}
+                            </div>
+
+                            {/* <SwitchThemeComponent /> */}
                         </div>
-
-                        {/* <SwitchThemeComponent /> */}
                     </div>
-                </div>
 
-                <div className="flex h-full justify-center w-full items-center md:items-baseline">
-                    <div className="text-center text-slate-300 max-w-screen-md mx-auto relative xl:max-w-screen-lg">
-                        <motion.h3
-                            variants={heroVariantSection}
-                            initial="initial"
-                            animate="animate"
-                            className="text-2xl sm:text-3xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 xl:text-6xl"
-                        >
-                            <div>
-                                Hi, I'm <StyledTextColor1>Fandi Aziz Pratama</StyledTextColor1>
-                            </div>
-                            <div>
-                                But You Can Call Me <StyledTextColor1>FandiAz</StyledTextColor1>
-                            </div>
-                        </motion.h3>
+                    <div className="flex h-full justify-center w-full items-center md:items-baseline">
+                        <div className="text-center text-slate-300 max-w-screen-md mx-auto relative xl:max-w-screen-lg">
+                            <motion.h3
+                                variants={heroVariantSection}
+                                initial="initial"
+                                animate="animate"
+                                className="text-2xl sm:text-3xl font-semibold leading-tight lg:text-5xl mb-5 md:leading-none md:mt-[80px] md:text-4xl mt-0 xl:text-6xl"
+                            >
+                                <div>
+                                    Hi, I'm <StyledTextColor1>Fandi Aziz Pratama</StyledTextColor1>
+                                </div>
+                                <div>
+                                    But You Can Call Me <StyledTextColor1>FandiAz</StyledTextColor1>
+                                </div>
+                            </motion.h3>
 
-                        <TypingRoleComponent />
+                            <TypingRoleComponent />
 
-                        {/* <motion.div
+                            {/* <motion.div
                             variants={heroVariantSection}
                             initial="initial"
                             animate="animate"
@@ -162,65 +163,65 @@ const BodyHomeComponent = () => {
                             </a>
                         </motion.div> */}
 
-                        <div className="flex flex-row justify-center gap-3 items-center mt-6">
-                            <motion.a
-                                href="#portofolio"
-                                variants={heroVariantSection}
-                                initial="initial"
-                                animate="animate"
-                                className="border rounded-xl text-sm cursor-pointer hover:bg-white hover:text-dark lg:px-6 lg:py-4 md:text-xl px-3 py-2 sm:text-lg transition-all"
-                            >
-                                <div className="flex justify-center items-center">
-                                    <span>See Latest Project</span>
-                                    <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}>
-                                        <FaArrowRight className="text-inherit ml-4" />
-                                    </motion.div>
-                                </div>
-                            </motion.a>
-                            <motion.a
-                                href="#contact-me"
-                                variants={heroVariantSection}
-                                initial="initial"
-                                animate="animate"
-                                className="bg-primary border rounded-xl text-sm text-white cursor-pointer hover:bg-transparent hover:text-white lg:px-6 lg:py-4 md:text-xl px-3 py-2 sm:text-lg transition-all"
-                            >
-                                <div className="flex justify-center items-center">
-                                    <span>Contact Me</span>
-                                </div>
-                            </motion.a>
-                        </div>
+                            <div className="flex flex-row justify-center gap-3 items-center mt-6">
+                                <motion.a
+                                    href="#portofolio"
+                                    variants={heroVariantSection}
+                                    initial="initial"
+                                    animate="animate"
+                                    className="border rounded-xl text-sm cursor-pointer hover:bg-white hover:text-dark lg:px-6 lg:py-4 md:text-xl px-3 py-2 sm:text-lg transition-all"
+                                >
+                                    <div className="flex justify-center items-center">
+                                        <span>See Latest Project</span>
+                                        <motion.div animate={{ x: [0, 10, 0] }} transition={{ duration: 1, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}>
+                                            <FaArrowRight className="text-inherit ml-4" />
+                                        </motion.div>
+                                    </div>
+                                </motion.a>
+                                <motion.a
+                                    href="#contact-me"
+                                    variants={heroVariantSection}
+                                    initial="initial"
+                                    animate="animate"
+                                    className="bg-primary border rounded-xl text-sm text-white cursor-pointer hover:bg-transparent hover:text-white lg:px-6 lg:py-4 md:text-xl px-3 py-2 sm:text-lg transition-all"
+                                >
+                                    <div className="flex justify-center items-center">
+                                        <span>Contact Me</span>
+                                    </div>
+                                </motion.a>
+                            </div>
 
-                        <div className="flex justify-center gap-8 items-center md:mt-10 mt-6">
-                            <motion.a
-                                target="_blank"
-                                href="https://github.com/fandiap13"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.8 }}
-                            >
-                                <FaGithub className="text-2xl lg:text-4xl md:text-3xl" />
-                            </motion.a>
-                            <motion.a
-                                target="_blank"
-                                href="https://www.linkedin.com/in/fandi-aziz-pratama-9b1a0b255/"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.8 }}
-                            >
-                                <FaLinkedin className="text-2xl lg:text-4xl md:text-3xl" />
-                            </motion.a>
-                            <motion.a
-                                target="_blank"
-                                href="https://www.youtube.com/@fandiazizp1340"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.8 }}
-                            >
-                                {/* <FaInstagram className="text-2xl lg:text-4xl md:text-3xl" /> */}
-                                <FaYoutube className="text-2xl lg:text-4xl md:text-3xl" />
-                            </motion.a>
+                            <div className="flex justify-center gap-8 items-center md:mt-10 mt-6">
+                                <motion.a
+                                    target="_blank"
+                                    href="https://github.com/fandiap13"
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }}
+                                >
+                                    <FaGithub className="text-2xl lg:text-4xl md:text-3xl" />
+                                </motion.a>
+                                <motion.a
+                                    target="_blank"
+                                    href="https://www.linkedin.com/in/fandi-aziz-pratama-9b1a0b255/"
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }}
+                                >
+                                    <FaLinkedin className="text-2xl lg:text-4xl md:text-3xl" />
+                                </motion.a>
+                                <motion.a
+                                    target="_blank"
+                                    href="https://www.youtube.com/@fandiazizp1340"
+                                    whileHover={{ scale: 1.2 }}
+                                    whileTap={{ scale: 0.8 }}
+                                >
+                                    {/* <FaInstagram className="text-2xl lg:text-4xl md:text-3xl" /> */}
+                                    <FaYoutube className="text-2xl lg:text-4xl md:text-3xl" />
+                                </motion.a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* <motion.div
+                    {/* <motion.div
                     className="flex justify-center absolute bottom-6 items-center left-0 right-0"
                     initial={{ opacity: 0, y: -20 }} // Mulai dari sedikit di atas dan transparan
                     animate={{ opacity: 1, y: 0 }} // Muncul dengan fade-in dan turun ke posisi aslinya
@@ -228,24 +229,25 @@ const BodyHomeComponent = () => {
                     transition={{ duration: 0.5, ease: "easeOut" }} // Efek lebih smooth
                 > */}
 
-                <div className="flex justify-center absolute bottom-6 gap-x-2 items-center left-0 right-0">
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }} // Mulai dari sedikit di atas dan transparan
-                        animate={{ opacity: [0, 1], y: [-10, 0] }} // Fade-in dan turun ke posisi awal
-                        transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }} // Animasi berulang
-                    >
-                        <Image
-                            src="/images/scroll.png"
-                            width={40}
-                            height={40}
-                            alt="Scroll Icon"
-                            style={{ objectFit: "contain" }}
-                        />
-                    </motion.div>
+                    <div className="flex justify-center absolute bottom-6 gap-x-2 items-center left-0 right-0">
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }} // Mulai dari sedikit di atas dan transparan
+                            animate={{ opacity: [0, 1], y: [-10, 0] }} // Fade-in dan turun ke posisi awal
+                            transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }} // Animasi berulang
+                        >
+                            <Image
+                                src="/images/scroll.png"
+                                width={40}
+                                height={40}
+                                alt="Scroll Icon"
+                                style={{ objectFit: "contain" }}
+                            />
+                        </motion.div>
 
-                    <div className="font-medium">Scroll Down</div>
+                        <div className="font-medium">Scroll Down</div>
 
-                    <FaArrowDown className="h-4 w-4" />
+                        <FaArrowDown className="h-4 w-4" />
+                    </div>
                 </div>
 
                 <SidebarComponent />
