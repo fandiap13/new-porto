@@ -1,27 +1,271 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-mona-sans: var(--font-mona-sans);
+
+  /* setting breakpoint */
+  --breakpoint-sm: 23.4375rem; /* 375px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 75rem; /* 1200px */
+
+  /* COLORS */
+  --color-white-50: var(--color-zinc-500); /* #d9ecff */
+  --color-black-50: #1c1c21;
+  --color-black-100: #0e0e10;
+  --color-black-200: #282732;
+  --color-blue-50: #839cb5;
+  --color-blue-100: #2d2d38;
+  --color-default: oklch(1 0 129.63 / 89.15%);
+
+  --color-bg-dark: oklch(0.1 0 224);
+  --color-bg: oklch(0.15 0 224);
+  --color-bg-light: oklch(0.2 0 224);
+
+  --color-text: oklch(0.96 0 224);
+  --color-text-muted: oklch(0.76 0 224);
+  --color-highlight: oklch(0.5 0 224);
+  --color-border: oklch(0.4 0 224);
+  --color-border-muted: oklch(0.3 0 224);
+  --color-primary: oklch(0.76 0.1 224);
+  --color-secondary: oklch(0.76 0.1 44);
+  --color-danger: oklch(0.7 0.05 30);
+  --color-warning: oklch(0.7 0.05 100);
+  --color-success: oklch(0.7 0.05 160);
+  --color-info: oklch(0.7 0.05 260);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18px, -12px) scale(1.05);
   }
 }
 
+:root {
+  --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 40px;
+}
+
+@media (min-width: 768px) {
+  .marquee {
+    height: 80px;
+  }
+}
+
+.marquee-box {
+  display: flex;
+  align-items: center;
+  width: 200%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* width: 100dvw; */
+  /* overflow-x: hidden; */
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+section {
+  width: 100dvw;
+}
+
+.navbar {
+  --start: 0;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .flex-center {
+    @apply flex justify-center items-center;
   }
-} */
+  .flex-col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+  .container-custom {
+    @apply mx-auto px-4 md:px-8;
+  }
+}
+
+@layer components {
+  .bg-glow-header {
+    @apply hidden md:block absolute top-[20px] left-[80px] w-[200px] h-[50px] bg-white rounded-full blur-[30px] opacity-50 pointer-events-none -z-10;
+  }
+
+  .navbar {
+    @apply fixed w-full bg-black/30 backdrop-blur-sm left-1/2 py-3 px-5 md:px-10 lg:px-30 -translate-x-1/2 z-[100] transition-all duration-300 ease-in-out
+    border-b-[0.5px] border-b-slate-600/50;
+
+    &.active {
+      @apply bg-black md:bg-black/30;
+    }
+
+    .nav {
+      @apply absolute md:static top-[100%] left-0 right-0 h-0 md:h-auto bg-black md:bg-inherit overflow-hidden md:overflow-auto z-10 transition-all duration-[0.6s];
+
+      ul {
+        @apply flex md:items-center flex-col md:flex-row gap-5 p-5 md:p-0;
+      }
+
+      &.active {
+        @apply h-screen md:h-auto;
+      }
+    }
+
+    .nav-li {
+      @apply text-base font-medium text-white-50 hover:text-white transition duration-300;
+
+      a {
+        @apply relative;
+      }
+
+      a::after {
+        content: "";
+        @apply absolute md:hidden left-0 -bottom-2 w-0 h-[1px] bg-default transition-all duration-300 rounded-full;
+      }
+
+      a:hover::after {
+        @apply w-full;
+      }
+    }
+  }
+
+  /* Section */
+  .my-button {
+    @apply bg-white text-sm md:text-base hover:bg-black-50 hover:text-default text-black-50 rounded-lg px-3 py-1.5 lg:px-5 lg:py-2.5 transition duration-300 cursor-pointer;
+  }
+
+  .cta-button {
+    @apply bg-white border-[0.5px] border-white text-black-50 px-4 py-2 lg:px-6 lg:py-3 text-sm md:text-base cursor-pointer;
+  }
+
+  .cta-button-outline {
+    @apply bg-transparent border-[0.5px] border-white/30 text-default px-4 py-2 lg:px-6 lg:py-3 text-sm md:text-base cursor-pointer;
+  }
+
+  .aura-title {
+    @apply relative text-3xl md:text-5xl lg:text-8xl font-medium after:content-[''] after:absolute after:-inset-x-6 after:-inset-y-2 after:-z-10 after:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.25),transparent_60%)] after:blur-xl after:pointer-events-none;
+  }
+
+  .text-shadow-def {
+    @apply leading-tight font-medium [text-shadow:0_0_18px_rgba(255,255,255,0.25)];
+  }
+
+  .tech-parent {
+    @apply flex items-center flex-wrap gap-1.5 lg:gap-3;
+
+    .tech-item {
+      @apply relative font-medium cursor-pointer rounded-full overflow-hidden px-2 py-0.5 hover:text-black before:content-[''] before:absolute before:block before:inset-0 before:bg-white/90 before:h-full before:w-0 hover:before:w-full before:-z-10 before:transition-all before:duration-300 transition duration-300;
+    }
+  }
+
+  hr {
+    @apply border-0 h-[.5px] w-full bg-default/20 rounded-full my-10;
+  }
+
+  @media (min-width: 48rem) {
+    .navbar::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25px;
+      left: 0;
+      right: 0;
+      height: 0.5px;
+      width: 300px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        var(--color-white) 20%,
+        var(--color-white) 80%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      filter: saturate(500);
+      transform: translateX(calc(var(--start, 0px) - 40px));
+      transition:
+        opacity 0.2s linear,
+        transform 0.04s linear;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 105;
+      will-change: transform;
+    }
+    .navbar:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+.glow {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(10px);
+  filter: saturate(200);
+}
+
+.card {
+  --start: 0;
+  position: relative;
+  z-index: 40;
+  overflow: hidden;
+  transition: border-color 1s ease-in-out;
+}
+
+.card::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: white;
+  background-attachment: fixed;
+  mask:
+    linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - 15) * 1deg),
+      #ffffff1f 0deg,
+      white,
+      #ffffff00 100deg
+    );
+  mask-composite: intersect;
+  mask-clip: padding-box, border-box;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
