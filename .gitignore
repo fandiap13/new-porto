@@ -44,3 +44,5 @@ next-env.d.ts
 bun.lock
 package-lock.json
 CLAUDE.md
+
+docs

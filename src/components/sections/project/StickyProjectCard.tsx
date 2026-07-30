@@ -2,52 +2,42 @@
 
 import { ButtonSection } from "@/components/buttons/ButtonSection";
 import { ProjectListProps } from "@/types";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { MotionValue, motion, useTransform } from "framer-motion";
 import { MoveUpRight } from "lucide-react";
-import React, { useRef } from "react";
+import React from "react";
 
 interface CardProps {
   project: ProjectListProps;
-  /** Urutan kartu — dipakai buat offset sticky bertingkat */
-  index: number;
-  /** Total kartu — buat ngitung sisa kartu di atasnya */
-  total: number;
+  /** Urutan kartu — nentuin offset tumpukan & z-index */
+  i: number;
+  /** Progress scroll milik container induk (dibagi ke semua kartu) */
+  progress: MotionValue<number>;
+  /** Rentang progress tempat kartu ini mengecil */
+  range: [number, number];
+  /** Skala akhir kartu ini saat ketimbun */
+  targetScale: number;
 }
 
-const StickyProjectCard: React.FC<CardProps> = ({ project, index, total }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Progress scroll kartu ini: 0 = baru masuk viewport, 1 = udah ketimbun kartu berikutnya
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Makin ketimbun, makin mengecil & meredup — bikin kesan tumpukan berlapis
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.88]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0.35]);
-  const blur = useTransform(scrollYProgress, [0, 1], [0, 4]);
-  const filter = useTransform(blur, (v) => `blur(${v}px)`);
-
-  // Tiap kartu berhenti sedikit lebih bawah dari kartu sebelumnya,
-  // jadi tepi atas kartu lama tetap kelihatan sebagai "tumpukan"
-  const topOffset = 9 + index * 1.75; // rem
+const StickyProjectCard: React.FC<CardProps> = ({
+  project,
+  i,
+  progress,
+  range,
+  targetScale,
+}) => {
+  // Kartu mengecil mengikuti progress induk, bukan scroll-nya sendiri —
+  // makanya tiap kartu berhenti di skala yang beda (tumpukan berlapis)
+  const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    // sticky di div luar (tanpa transform), motion.div menganimasi isinya —
-    // transform pada elemen sticky bikin perhitungan posisinya kacau
-    <div
-      ref={containerRef}
-      className="lg:sticky"
-      style={{
-        top: `${topOffset}rem`,
-        // kartu terakhir paling atas biar urutan tumpukannya natural
-        zIndex: index + 1,
-      }}
-    >
+    <div className="lg:sticky lg:top-0 flex items-center justify-center w-full">
       <motion.div
-        style={{ scale, opacity, filter, transformOrigin: "center top" }}
-        className="card-wrapper border-[.5px] border-default/20 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 overflow-hidden bg-black shadow shadow-white/15 hover:shadow-lg hover:border-white/30 transition-[border-color,box-shadow] duration-300"
+        style={{
+          scale,
+          // tiap kartu berhenti sedikit lebih bawah dari kartu sebelumnya
+          top: `calc(-5vh + ${i * 25 + 180}px)`,
+        }}
+        className="card-wrapper relative lg:origin-top w-full border-[.5px] border-default/20 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 overflow-hidden bg-black shadow shadow-white/15 hover:shadow-lg hover:border-white/30 transition-[border-color,box-shadow] duration-300"
       >
         <div className="order-2 lg:order-1 px-6 md:px-8 lg:px-12 py-4 md:py-6 lg:py-10">
           <div className="space-y-5 mb-4 md:mb-8 lg:mb-10">
