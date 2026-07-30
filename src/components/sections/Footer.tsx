@@ -86,7 +86,7 @@ const Footer = () => {
               <LucideMail className="size-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/fandiap13"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full size-14 border-[0.5px] border-default/25 flex items-center justify-center hover:bg-default/25 transition duration-300"

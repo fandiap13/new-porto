@@ -6,7 +6,7 @@ import GlowCard from "@/components/cards/GlowCard";
 import { works } from "@/constants";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { LogOut } from "lucide-react";
+import { CalendarDays, LogOut } from "lucide-react";
 import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,8 +71,12 @@ const Work = () => {
                 {/* Konten */}
                 <div className="flex-1 pb-10">
                   <h1 className="font-semibold text-2xl mb-1">{work.role}</h1>
-                  <span className="text-highlight font-medium text-sm">
-                    🗓️ {work.period}
+                  <h1 className="font-medium text-xl text-primary mb-1">
+                    {work.company}
+                  </h1>
+                  <span className="flex items-center gap-2 text-highlight font-medium text-sm">
+                    <CalendarDays className="size-6 shrink-0" />
+                    {work.period}
                   </span>
 
                   <hr className="my-4 border-0 h-[2px] w-1/3 bg-white/30 rounded-full" />
@@ -102,8 +106,12 @@ const Work = () => {
               {/* Desktop layout */}
               <div className="hidden md:block">
                 <h1 className="font-semibold text-3xl mb-3">{work.role}</h1>
-                <span className="text-highlight font-medium text-base">
-                  🗓️ {work.period}
+                <h1 className="font-medium text-xl text-primary mb-3">
+                  {work.company}
+                </h1>
+                <span className="flex items-center gap-2 text-highlight font-medium text-base">
+                  <CalendarDays className="size-6 shrink-0" />
+                  {work.period}
                 </span>
 
                 <hr className="my-4 border-0 h-[2px] w-1/3 bg-white/30 rounded-full" />

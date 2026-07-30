@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 /**
  * Reveal halaman saat load pertama: overlay hitam yang fade out,
@@ -9,6 +9,7 @@ import { ReactNode } from "react";
  */
 const PageReveal = ({ children }: { children: ReactNode }) => {
   const shouldReduceMotion = useReducedMotion();
+  const [revealed, setRevealed] = useState(false);
 
   return (
     <>
@@ -32,6 +33,11 @@ const PageReveal = ({ children }: { children: ReactNode }) => {
           delay: shouldReduceMotion ? 0 : 0.15,
           ease: [0.19, 1, 0.22, 1],
         }}
+        // transform sisa di sini bikin `position: sticky` anak-anaknya patah
+        // (sticky jadi relatif ke elemen ini, bukan viewport) — jadi dibersihkan
+        // begitu animasinya kelar
+        onAnimationComplete={() => setRevealed(true)}
+        style={revealed ? { transform: "none" } : undefined}
       >
         {children}
       </motion.div>

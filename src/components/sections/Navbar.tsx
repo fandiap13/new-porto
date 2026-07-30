@@ -66,7 +66,14 @@ const Navbar = () => {
             <ul>
               {navLinks.map((nav, i) => (
                 <li key={i} className="nav-li">
-                  <a href={nav.link}>{nav.name}</a>
+                  <a
+                    href={nav.link}
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
+                    {nav.name}
+                  </a>
                 </li>
               ))}
             </ul>

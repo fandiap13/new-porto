@@ -220,6 +220,35 @@ section {
   }
 }
 
+/* Glow putih yang ngikutin kursor di seluruh halaman */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.10) 45%,
+    transparent 75%
+  );
+  filter: blur(45px);
+}
+
+/* Sembunyikan di perangkat sentuh & saat user minta minim animasi */
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
 .glow {
   pointer-events: none;
   position: absolute;

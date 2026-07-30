@@ -6,6 +6,10 @@ export const navLinks = [
   //   link: "#work",
   // },
   {
+    name: "About",
+    link: "#about",
+  },
+  {
     name: "Experience",
     link: "#experience",
   },
@@ -16,6 +20,10 @@ export const navLinks = [
   {
     name: "Portofolio",
     link: "#work",
+  },
+  {
+    name: "Education",
+    link: "#education",
   },
 ];
 export const projects: ProjectListProps[] = [
@@ -71,6 +79,20 @@ export const projects: ProjectListProps[] = [
     image: "/images/whk-portable/pemindaian perangkat 2.png",
     tech: ["Flutter", "BLE"],
     link: "https://github.com/fandiap13/magang_WHKPortable",
+  },
+];
+
+export const educations = [
+  {
+    institution: "Universitas Duta Bangsa Surakarta",
+    degree: "Bachelor of Informatics Engineering (S1 Teknik Informatika)",
+    period: "2020 – 2024",
+    detail: "GPA 3.84 / 4.00",
+  },
+  {
+    institution: "SMK Negeri 2 Karanganyar",
+    degree: "Software Engineering (Rekayasa Perangkat Lunak)",
+    period: "2017 – 2020",
   },
 ];
 
