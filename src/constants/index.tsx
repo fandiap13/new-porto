@@ -80,35 +80,34 @@ export const works = [
     company: "PT Himalaya Indokarya",
     period: "Nov 2024 – Present",
     description: [
-      "Built the JAE Billing System, a pre-flight aircraft inspection platform using Next.js and Laravel.",
-      "Developed Magnitude, a Work Order Management System for tracking and reporting villa facility conditions.",
-      "Integrated Next.js frontend with Laravel backend and PostgreSQL database.",
-      "Used Material UI (MUI) to build a consistent and responsive interface across both platforms.",
+      "Redesigned the HI-Queue queue management system from a Laravel monolith into a decoupled architecture using Next.js for the frontend and Express.js for the backend.",
+      "Integrated and optimized the system's existing WebSocket-based real-time queue synchronization to improve live queue data updates.",
+      "Developed the queue data flow to handle concurrent multi-user access more reliably.",
+      "Optimized frontend–backend integration to improve overall system responsiveness.",
     ],
     comment:
-      "This role pushed me to build real enterprise systems and taught me how to connect frontend and backend cleanly under production pressure.",
+      "Breaking a working monolith apart taught me more about architecture than any tutorial could — especially how much care real-time data needs when many users hit it at once.",
   },
   {
     role: "Fullstack Web Developer",
     company: "BIIS Corp",
     period: "Jun 2024 – Oct 2024",
     description: [
-      "Worked on Daftaronline KJRI JB as a Front End Developer using Next.js, Tailwind, and Flowbite.",
-      "Built a responsive and user-friendly online registration interface for KJRI Johor Bahru.",
-      "Collaborated with the team on API integration and user data management.",
+      "Developed Magnitude, a Work Order Management System built with Next.js for reporting facility conditions, documentation, and repair process tracking.",
+      "Built JAE (JAS Aero Engineering), a web-based aircraft inspection system for pre-flight check processes, integrated with the backend.",
+      "Implemented production-ready frontend interfaces with a focus on performance and maintainability.",
     ],
     comment:
-      "Working here taught me how to move fast in a team, handle real user flows, and ship features that actually matter.",
+      "Shipping two production systems back to back taught me to move fast without leaving a mess behind — maintainability is a feature, not an afterthought.",
   },
   {
-    role: "IoT Intern",
+    role: "IoT Staff — Internship",
     company: "PT Widya Imersif Teknologi",
     period: "Sep 2023 – Jan 2024",
     description: [
-      "Built a proof-of-concept for the Wish Health Kios Sehat Portable app using Flutter.",
-      "Integrated SpO2, thermometer, and body weight sensors via Bluetooth Low Energy (BLE).",
-      "Developed the Kios Sehat Kit Portable app to configure device WiFi settings over BLE.",
-      "Learned hands-on BLE communication between microcontrollers and mobile apps.",
+      "Developed a Flutter-based mobile app for the Wish Health Kios Sehat Kit Portable PoC project.",
+      "Supported the development of the Flutter-based Kios Sehat Kit Support app.",
+      "Supported the integration of IoT device data into the mobile app for monitoring purposes.",
     ],
     comment:
       "My first real dive into IoT. It changed how I think about software — not just screens, but the physical world too.",
