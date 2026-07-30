@@ -53,12 +53,13 @@
 
 "use client";
 
+import FadeUp from "@/components/animations/FadeUp";
 import { LucideGithub, LucideLinkedin, LucideMail } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="container container-custom">
-      <div className="rounded-4xl w-full border border-default/25 mb-10 md:mb-14 px-6 py-6 md:px-16 md:py-16 lg:px-24 lg:py-24">
+      <FadeUp className="rounded-4xl w-full border border-default/25 mb-10 md:mb-14 px-6 py-6 md:px-16 md:py-16 lg:px-24 lg:py-24">
         <div className="w-full md:max-w-xl space-y-6">
           <h2 className="text-default/90 font-medium text-2xl md:text-4xl">
             Fandi <span className="text-primary">Az</span>
@@ -103,7 +104,7 @@ const Footer = () => {
             Reserved.
           </span>
         </div>
-      </div>
+      </FadeUp>
     </footer>
   );
 };

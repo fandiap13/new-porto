@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/components/animations/FadeUp";
 import { Code, Gauge, LayoutDashboard, Link, Server } from "lucide-react";
 
 const offers = [
@@ -34,9 +35,10 @@ const Showcase = () => {
   return (
     <section id="hero" className="container container-custom py-16 lg:py-28">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
-        {offers.map((offer) => (
-          <div
+        {offers.map((offer, i) => (
+          <FadeUp
             key={offer.title}
+            delay={i * 0.1}
             className="border-[.5px] border-default/20 rounded-xl px-8 lg:px-12 py-6 lg:py-10 transform hover:-translate-y-2 hover:border-default/40 shadow shadow-white/15 hover:shadow-lg transition duration-300"
           >
             <div className="mb-6">
@@ -50,7 +52,7 @@ const Showcase = () => {
                 {offer.desc}
               </p>
             </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
     </section>

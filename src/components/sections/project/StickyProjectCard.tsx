@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/components/animations/FadeUp";
 import { ButtonSection } from "@/components/buttons/ButtonSection";
 import { ProjectListProps } from "@/types";
 import { MoveUpRight } from "lucide-react";
@@ -11,7 +12,10 @@ interface CardProps {
 
 const StickyProjectCard: React.FC<CardProps> = ({ project }) => {
   return (
-    <div className="card-wrapper border-[.5px] border-default/20 rounded-xl lg:sticky top-36 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 overflow-hidden bg-black shadow shadow-white/15 hover:shadow-lg hover:border-white/30 transition duration-300">
+    // sticky di div luar (tanpa transform), FadeUp menganimasi isinya —
+    // transform pada elemen sticky bikin perhitungan posisinya kacau
+    <div className="lg:sticky top-36">
+      <FadeUp className="card-wrapper border-[.5px] border-default/20 rounded-xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 overflow-hidden bg-black shadow shadow-white/15 hover:shadow-lg hover:border-white/30 transition duration-300">
       <div className="order-2 lg:order-1 px-6 md:px-8 lg:px-12 py-4 md:py-6 lg:py-10">
         <div className="space-y-5 mb-4 md:mb-8 lg:mb-10">
           <h3 className="font-semibold text-2xl bg-gradient-to-r from-default to-white-50 bg-clip-text text-transparent">
@@ -53,6 +57,7 @@ const StickyProjectCard: React.FC<CardProps> = ({ project }) => {
           className="w-full h-full object-cover lg:object-cover"
         />
       </div>
+      </FadeUp>
     </div>
   );
 };

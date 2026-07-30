@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/components/animations/FadeUp";
 import {
   Boxes,
   Cloud,
@@ -33,7 +34,7 @@ const LogoIcon = ({ Icon, name }: { Icon: LucideIcon; name: string }) => {
 const ShowTech = () => {
   return (
     <section id="skills" className="container container-custom lg:py-28">
-      <div className="marquee h-16 md:h-52 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <FadeUp className="marquee h-16 md:h-52 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         {" "}
         <div className="marquee-box">
           {techStack.map((tech, i) => (
@@ -46,7 +47,7 @@ const ShowTech = () => {
             <LogoIcon Icon={tech.icon} name={tech.name} key={i} />
           ))}
         </div>
-      </div>
+      </FadeUp>
     </section>
   );
 };

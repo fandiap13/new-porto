@@ -1,6 +1,7 @@
 "use client";
 
 import SectionHeader from "@/components/SectionHeader";
+import FadeUp from "@/components/animations/FadeUp";
 import GlowCard from "@/components/cards/GlowCard";
 import { works } from "@/constants";
 import gsap from "gsap";
@@ -25,7 +26,7 @@ const Work = () => {
 
       <div className="flex flex-col" ref={scope}>
         {works.map((work, i) => (
-          <div
+          <FadeUp
             key={work.company}
             className="grid grid-cols-1 md:grid-cols-[1fr_fit-content(100%)_1fr]"
           >
@@ -118,7 +119,7 @@ const Work = () => {
                 )}
               </div>
             </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
     </section>

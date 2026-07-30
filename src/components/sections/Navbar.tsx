@@ -47,7 +47,10 @@ const Navbar = () => {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
         className={twMerge("navbar", menuOpen && "active")}
         ref={cardRef}
         onMouseMove={handleMouseMove}
@@ -111,7 +114,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <div className="bg-glow-header" />
     </>

@@ -1,9 +1,26 @@
 "use client";
 
 import { ButtonSection } from "@/components/buttons/ButtonSection";
+import { motion, useReducedMotion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import TypingRoleComponent from "./TypingRole";
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  // stagger manual: tiap elemen dapat delay bertingkat biar masuknya berurutan
+  const item = (delay: number) => ({
+    initial: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.8,
+      delay: shouldReduceMotion ? 0 : delay,
+      ease: [0.19, 1, 0.22, 1] as const,
+    },
+  });
+
+  const router = useRouter();
+
   return (
     <section
       id="hero"
@@ -11,28 +28,37 @@ const Hero = () => {
     >
       <div className="w-full grid md:grid-cols-1 lg:grid-cols-[70%_1fr] gap-10">
         <div className="w-full">
-          <h4 className="text-lg font-medium mb-3">
+          <motion.h4 {...item(0.5)} className="text-lg font-medium mb-3">
             Hi, I'm Fandi Aziz Pratama
-          </h4>
-          <h1 className="aura-title mb-10">
+          </motion.h4>
+          <motion.h1 {...item(0.65)} className="aura-title mb-10">
             Building scalable, high-performance web experiences
-          </h1>
-          <p className="leading-relaxed text-sm md:text-base lg:text-lg mb-10">
+          </motion.h1>
+          <motion.p
+            {...item(0.8)}
+            className="leading-relaxed text-sm md:text-base lg:text-lg mb-10"
+          >
             Frontend-focused web developer based in Indonesia. I build clean,
             responsive, and production-ready web apps using Next.js, React, and
             Laravel — with a strong eye for detail and user experience.
-          </p>
+          </motion.p>
 
-          <div>
+          <motion.div {...item(0.95)}>
             <TypingRoleComponent />
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="flex items-center gap-5 mt-16">
-        <ButtonSection>Download CV</ButtonSection>
+      <motion.div {...item(1.1)} className="flex items-center gap-5 mt-16">
+        <ButtonSection
+          onClick={() => {
+            window.open("/docs/CV_Fandi Aziz Pratama.pdf", "_blank");
+          }}
+        >
+          Download CV
+        </ButtonSection>
         <ButtonSection className="cta-button-outline">My Project</ButtonSection>
-      </div>
+      </motion.div>
     </section>
   );
 };
